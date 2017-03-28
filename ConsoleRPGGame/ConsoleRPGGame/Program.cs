@@ -20,7 +20,7 @@ namespace ConsoleRPGGame
             Console.WriteLine("D - to Display items in your backpack");
             Console.WriteLine("R - to Remove an item in your backpack");
             Console.WriteLine("E - to Empty and Remove all items in your backpack");
-            Console.WriteLine("Q - to Empty and Remove all items in your backpack");
+            Console.WriteLine("Q - Quit");
             ConsoleKeyInfo key = Console.ReadKey();
             do
             {
@@ -34,7 +34,7 @@ namespace ConsoleRPGGame
                 Console.WriteLine("D - to Display items in your backpack");
                 Console.WriteLine("R - to Remove an item in your backpack");
                 Console.WriteLine("E - to Empty and Remove all items in your backpack");
-                Console.WriteLine("Q - to Empty and Remove all items in your backpack");
+                Console.WriteLine("Q - Quit");
                 key = Console.ReadKey();
             }
             while (key.Key != ConsoleKey.Q);
@@ -75,7 +75,6 @@ namespace ConsoleRPGGame
                 }
                 else if (key.Key == ConsoleKey.D)
                 {
-                    Console.WriteLine("Your backpack contains the following:");
                     backPack.Display();
                 }
                 else if (key.Key == ConsoleKey.R)

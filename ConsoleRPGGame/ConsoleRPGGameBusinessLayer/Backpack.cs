@@ -42,11 +42,12 @@ namespace ConsoleRPGBusinessLayer
                 return false;
             }
             Item newItem = new Item(itemName, itemWeight, itemSize);
+            contents.Add(newItem);
             Console.WriteLine(itemName + " successfully added.");
             backpackCurrentWeight += itemWeight;
             backpackCurrentCapacity += itemSize;
+            Console.WriteLine();
 
-            contents.Add(newItem);
             return true;
         }
 
@@ -62,8 +63,16 @@ namespace ConsoleRPGBusinessLayer
                }
                 index++;
             }
-            contents.RemoveAt(index);
-            Console.WriteLine(itemName + " has been removed.");
+            if(index < contents.Count)
+            {
+                contents.RemoveAt(index);
+                Console.WriteLine(itemName + " has been removed.");
+            }
+            else
+            {
+                Console.WriteLine(itemName + " is not in your backpack.");
+            }
+            Console.WriteLine();
         }
 
         public void EmptyBackPack()
@@ -71,10 +80,29 @@ namespace ConsoleRPGBusinessLayer
             contents.Clear();
         }
 
+        public override string ToString()
+        {
+            string contentsToString = "";
+
+            if (contents.Count != 0)
+            {
+                foreach (Item item in contents)
+                {
+                    contentsToString += item.ItemName + ", " + item.ItemWeight.ToString() + "kg, " + item.ItemSize.ToString() + "spaces \n";
+                }
+            }
+            else
+            {
+                contentsToString = "Your back pack is currently empty!";
+            }
+            return contentsToString;
+
+        }
         public void Display()
         {
             if (contents.Count != 0)
             {
+                Console.WriteLine("Your backpack contains the following:");
                 foreach (Item item in contents)
                 {
                     Console.Write(item.ItemName);
@@ -93,6 +121,7 @@ namespace ConsoleRPGBusinessLayer
             int availableSpace = backpackCapacityLimit - backpackCurrentCapacity;
             Console.WriteLine("Current Weight = " + backpackCurrentWeight.ToString() + ", you still have " + availableWeight + "kg remaining");
             Console.WriteLine("Current Size Capacity = " + backpackCurrentCapacity.ToString() + ", you still have " + availableSpace + " units remaining");
+            Console.WriteLine();
         }
     }
 }
