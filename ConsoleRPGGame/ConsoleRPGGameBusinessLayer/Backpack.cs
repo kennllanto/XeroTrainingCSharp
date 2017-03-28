@@ -30,7 +30,7 @@ namespace ConsoleRPGBusinessLayer
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You cannot add the " + itemName + ", backpack will be overweight. Current weight = " + backpackCurrentWeight.ToString());
                 Console.WriteLine("Weight Limit = " + backpackweightLimit.ToString() + " Your bag will be overweight by " + (newWeight - backpackweightLimit));
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
                 return false;
             }
             if (newSize > backpackCapacityLimit)
@@ -38,7 +38,7 @@ namespace ConsoleRPGBusinessLayer
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You cannot add the" +  itemName + ", item will not fit. Current Contents = " + backpackCurrentCapacity.ToString());
                 Console.WriteLine("Capacity Limit = " + backpackCapacityLimit.ToString() + " Your bag will be over by " + (newSize - backpackCapacityLimit));
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
                 return false;
             }
             Item newItem = new Item(itemName, itemWeight, itemSize);
@@ -52,19 +52,42 @@ namespace ConsoleRPGBusinessLayer
 
         public void RemoveItem(string itemName)
         {
-            // todo
+            int index = 0;
+
+            foreach (Item item in contents)
+            {
+               if(item.ItemName == itemName)
+               {
+                    break;        
+               }
+                index++;
+            }
+            contents.RemoveAt(index);
+            Console.WriteLine(itemName + " has been removed.");
+        }
+
+        public void EmptyBackPack()
+        {
+            contents.Clear();
         }
 
         public void Display()
         {
-            foreach (Item item in contents)
+            if (contents.Count != 0)
             {
-                Console.Write(item.ItemName);
-                Console.Write(", ");
-                Console.Write(item.ItemWeight.ToString());
-                Console.Write("kg, ");
-                Console.Write(item.ItemSize.ToString());
-                Console.WriteLine("spaces");
+                foreach (Item item in contents)
+                {
+                    Console.Write(item.ItemName);
+                    Console.Write(", ");
+                    Console.Write(item.ItemWeight.ToString());
+                    Console.Write("kg, ");
+                    Console.Write(item.ItemSize.ToString());
+                    Console.WriteLine("spaces");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Your back pack is currently empty!");
             }
             int availableWeight = backpackweightLimit - backpackCurrentWeight;
             int availableSpace = backpackCapacityLimit - backpackCurrentCapacity;

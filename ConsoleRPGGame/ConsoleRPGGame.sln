@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRPGGame", "ConsoleRP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRPGBusinessLayer", "ConsoleRPGGameBusinessLayer\ConsoleRPGBusinessLayer.csproj", "{39B7132A-6ABC-440D-8992-767DE6DA21B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRPGGameDataLayer", "ConsoleRPGGameDataLayer\ConsoleRPGGameDataLayer.csproj", "{977FB8A9-42E1-4EE8-BC2F-351AB449086D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{39B7132A-6ABC-440D-8992-767DE6DA21B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39B7132A-6ABC-440D-8992-767DE6DA21B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39B7132A-6ABC-440D-8992-767DE6DA21B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{977FB8A9-42E1-4EE8-BC2F-351AB449086D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977FB8A9-42E1-4EE8-BC2F-351AB449086D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977FB8A9-42E1-4EE8-BC2F-351AB449086D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977FB8A9-42E1-4EE8-BC2F-351AB449086D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

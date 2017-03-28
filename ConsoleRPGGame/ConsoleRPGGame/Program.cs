@@ -18,13 +18,13 @@ namespace ConsoleRPGGame
             Console.WriteLine("Welcome to your backpack.");
             Console.WriteLine("A - to add an item into your backpack");
             Console.WriteLine("D - to Display items in your backpack");
-            // todo Console.WriteLine("R - to Remove an item in your backpack");
-            // todo Console.WriteLine("E - to Empty and Remove all items in your backpack");
+            Console.WriteLine("R - to Remove an item in your backpack");
+            Console.WriteLine("E - to Empty and Remove all items in your backpack");
             Console.WriteLine("Q - to Empty and Remove all items in your backpack");
             ConsoleKeyInfo key = Console.ReadKey();
             do
             {
-                if((key.Key == ConsoleKey.A) || (key.Key == ConsoleKey.D))
+                if((key.Key == ConsoleKey.A) || (key.Key == ConsoleKey.D) || (key.Key == ConsoleKey.E) || (key.Key == ConsoleKey.R))
                 {
                     BackPackAction(key, myBackPack);
                 }
@@ -32,8 +32,8 @@ namespace ConsoleRPGGame
                 Console.WriteLine();
                 Console.WriteLine("A - to add an item into your backpack");
                 Console.WriteLine("D - to Display items in your backpack");
-                // todo Console.WriteLine("R - to Remove an item in your backpack");
-                // todo Console.WriteLine("E - to Empty and Remove all items in your backpack");
+                Console.WriteLine("R - to Remove an item in your backpack");
+                Console.WriteLine("E - to Empty and Remove all items in your backpack");
                 Console.WriteLine("Q - to Empty and Remove all items in your backpack");
                 key = Console.ReadKey();
             }
@@ -77,6 +77,19 @@ namespace ConsoleRPGGame
                 {
                     Console.WriteLine("Your backpack contains the following:");
                     backPack.Display();
+                }
+                else if (key.Key == ConsoleKey.R)
+                {
+                    string name;
+                    Console.WriteLine("To remove an item, enter the item name");
+                    Console.Write("Item Name: ");
+                    name = Console.ReadLine();
+                    backPack.RemoveItem(name);
+                }
+                else if (key.Key == ConsoleKey.E)
+                {
+                    Console.WriteLine("Your backpack will be emptied.");
+                    backPack.EmptyBackPack();
                 }
             }
             catch (Exception e)
