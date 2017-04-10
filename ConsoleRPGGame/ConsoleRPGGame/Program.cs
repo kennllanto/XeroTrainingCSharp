@@ -13,28 +13,31 @@ namespace ConsoleRPGGame
         {
             Backpack myBackPack = new Backpack();
 
-  
 
+            Console.BackgroundColor = ConsoleColor.Blue;
             Console.WriteLine("Welcome to your backpack.");
             Console.WriteLine("A - to add an item into your backpack");
             Console.WriteLine("D - to Display items in your backpack");
             Console.WriteLine("R - to Remove an item in your backpack");
             Console.WriteLine("E - to Empty and Remove all items in your backpack");
             Console.WriteLine("Q - Quit");
+            Console.BackgroundColor = ConsoleColor.White;
             ConsoleKeyInfo key = Console.ReadKey();
             do
             {
-                if((key.Key == ConsoleKey.A) || (key.Key == ConsoleKey.D) || (key.Key == ConsoleKey.E) || (key.Key == ConsoleKey.R))
+                if((key.Key == ConsoleKey.A) || (key.Key == ConsoleKey.D) || (key.Key == ConsoleKey.E) || (key.Key == ConsoleKey.R) || (key.Key == ConsoleKey.T))
                 {
                     BackPackAction(key, myBackPack);
                 }
 
                 Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.Blue;
                 Console.WriteLine("A - to add an item into your backpack");
                 Console.WriteLine("D - to Display items in your backpack");
                 Console.WriteLine("R - to Remove an item in your backpack");
                 Console.WriteLine("E - to Empty and Remove all items in your backpack");
                 Console.WriteLine("Q - Quit");
+                Console.BackgroundColor = ConsoleColor.White;
                 key = Console.ReadKey();
             }
             while (key.Key != ConsoleKey.Q);
@@ -89,6 +92,10 @@ namespace ConsoleRPGGame
                 {
                     Console.WriteLine("Your backpack will be emptied.");
                     backPack.EmptyBackPack();
+                }
+                else if (key.Key == ConsoleKey.T)
+                {
+                    Console.WriteLine(backPack.ToString());
                 }
             }
             catch (Exception e)

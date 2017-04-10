@@ -14,6 +14,11 @@ namespace ConsoleRPGBusinessLayer
         private int backpackCurrentWeight;
         private int backpackCurrentCapacity;
 
+        public int BackpackweightLimit { get { return backpackweightLimit; }}
+        public int BackpackCapacityLimit { get { return backpackCapacityLimit; } }
+        public int BackpackCurrentWeight { get { return backpackCurrentWeight; } }
+        public int BackpackCurrentCapacity { get { return backpackCurrentCapacity; } }
+
         public Backpack()
         {
             var contents = new List<string>();
